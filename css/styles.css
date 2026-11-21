@@ -1,0 +1,319 @@
+/* SayGato site styles. Brand colors from the app theme (src/theme.ts).
+   System fonts only — no external fonts, CDNs, or trackers. */
+
+:root {
+  --ink: #14212B;
+  --ink-muted: #4D5A66;
+  --paper: #FFF4E3;
+  --card: #FFFCF7;
+  --line: #E2D6C2;
+  --en: #0B5D6E;
+  --en-deep: #073F4B;
+  --en-tint: #DCEDEF;
+  --es: #B0431C;
+  --es-deep: #7E2C0F;
+  --es-tint: #F7E0D2;
+  --bridge: #1D6B4F;
+  --bridge-tint: #DCEFE5;
+  --gato: #E8853A;
+  --gold: #E2A93B;
+  --warn: #8A5300;
+  --warn-tint: #FAEACB;
+  --on-dark: #F6F0E4;
+  --max: 44rem;
+  --header-h: 4.25rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+  font-size: 1.0625rem;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--en); text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+a:hover { color: var(--en-deep); }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--gato);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  background: var(--en-deep);
+  color: var(--on-dark);
+  padding: 0.5rem 0.85rem;
+  border-radius: 0.5rem;
+  z-index: 20;
+}
+.skip:focus { top: 0.75rem; }
+
+/* Preview banner — remove before the site goes live. */
+.preview-banner {
+  background: var(--warn-tint);
+  color: var(--warn);
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.45rem 1rem;
+  border-bottom: 1px solid #E2A93B;
+}
+
+.stripe {
+  height: 6px;
+  background: linear-gradient(90deg, var(--en-deep) 0 40%, var(--gato) 40% 70%, var(--es) 70% 100%);
+}
+
+.site-header {
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header .wrap {
+  max-width: calc(var(--max) + 4rem);
+  margin: 0 auto;
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+  flex-wrap: wrap;
+  min-height: var(--header-h);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--en-deep);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+.brand img {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(20, 33, 43, 0.12);
+}
+.brand:hover { color: var(--en); }
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.15rem;
+}
+nav a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+}
+nav a:hover { color: var(--en-deep); background: var(--en-tint); }
+nav a[aria-current="page"] {
+  color: var(--en-deep);
+  background: var(--en-tint);
+}
+nav a.lang {
+  margin-left: 0.35rem;
+  color: var(--es-deep);
+  background: var(--es-tint);
+  border: 1px solid #E8C4AE;
+}
+nav a.lang:hover { background: #F3D3C0; }
+
+main { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem 3.5rem; }
+
+.hero {
+  text-align: center;
+  padding: 2.75rem 0 2rem;
+}
+.hero .logo {
+  width: 112px;
+  height: 112px;
+  border-radius: 28px;
+  box-shadow: 0 8px 24px rgba(20, 33, 43, 0.14);
+  margin-bottom: 1.1rem;
+}
+.hero h1 {
+  font-size: clamp(2.1rem, 6vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--en-deep);
+  margin: 0 0 0.35rem;
+}
+.tagline {
+  font-size: clamp(1.25rem, 3.2vw, 1.6rem);
+  font-weight: 700;
+  color: var(--gato);
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+.lede {
+  font-size: 1.125rem;
+  color: var(--ink-muted);
+  max-width: 36rem;
+  margin: 0 auto 1.25rem;
+}
+.badge {
+  display: inline-block;
+  background: var(--en-tint);
+  color: var(--en-deep);
+  border: 1px solid #B9D5DA;
+  border-radius: 999px;
+  padding: 0.4rem 0.95rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: var(--en-deep);
+  margin: 0 0 0.7rem;
+}
+h3 {
+  font-size: 1.05rem;
+  color: var(--en-deep);
+  margin: 1.25rem 0 0.4rem;
+}
+
+section {
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.games {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+.games li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+}
+.games strong { color: var(--en-deep); }
+
+.credit {
+  background: var(--en-tint);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  color: var(--en-deep);
+  margin: 0;
+}
+
+.page-title {
+  padding: 2.1rem 0 0.4rem;
+}
+.page-title h1 {
+  font-size: clamp(1.8rem, 4.5vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--en-deep);
+  margin: 0 0 0.4rem;
+}
+.meta {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  margin: 0 0 0.25rem;
+}
+
+.prose > * { margin-top: 0; }
+.prose p, .prose ul { margin-bottom: 1rem; }
+.prose ul { padding-left: 1.25rem; }
+.prose li { margin: 0.3rem 0; }
+.prose h2 { margin-top: 2rem; }
+
+.faq { margin: 0; }
+.faq dt {
+  font-weight: 700;
+  color: var(--en-deep);
+  margin-top: 1.15rem;
+}
+.faq dd { margin: 0.25rem 0 0; }
+
+/* Placeholders Carlos still needs to fill in. */
+.tbd {
+  display: inline-block;
+  background: var(--warn-tint);
+  color: var(--warn);
+  border: 1px dashed var(--gold);
+  border-radius: 6px;
+  padding: 0 0.35em;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.note {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--en);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+}
+
+footer {
+  background: var(--en-deep);
+  color: var(--on-dark);
+  padding: 2rem 1.25rem 2.6rem;
+  font-size: 0.95rem;
+}
+footer .wrap { max-width: var(--max); margin: 0 auto; }
+footer a { color: #DCEDEF; }
+footer a:hover { color: #fff; }
+footer p { margin: 0.4rem 0; }
+footer .fine { color: #B9CDD1; font-size: 0.88rem; }
+footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1rem;
+  margin-bottom: 0.9rem;
+}
+footer nav a { color: #DCEDEF; padding: 0; background: none; font-weight: 600; }
+footer nav a:hover { background: none; color: #fff; }
+
+@media (max-width: 540px) {
+  body { font-size: 1.025rem; }
+  .site-header .wrap { padding: 0.55rem 0.9rem; }
+  main { padding: 0 1rem 2.75rem; }
+  .hero { padding: 2rem 0 1.5rem; }
+  .hero .logo { width: 88px; height: 88px; border-radius: 22px; }
+  nav a { padding: 0.35rem 0.55rem; font-size: 0.9rem; }
+  .brand img { width: 38px; height: 38px; border-radius: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+.intro {
+  font-size: 1.125rem;
+  color: var(--ink-muted);
+  max-width: 40rem;
+  margin: 0 0 0.5rem;
+}
+section.faq-block { border-top: 0; padding-top: 0.5rem; }
