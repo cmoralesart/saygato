@@ -1,6 +1,6 @@
 # SayGato website
 
-Live at **https://cmoralesart.github.io/saygato/** (GitHub Pages, from `main`, root). Published Nov 19–20, 2026 with Carlos Morales's approval.
+Live at **https://cmoralesart.github.io/saygato/** (GitHub Pages, from `main`, root). Published Nov 19–20, 2026.
 
 Static HTML and CSS only. No trackers, no analytics, no external fonts, and no CDNs. The app's code lives in the separate private `SayGatoApp` repository.
 
